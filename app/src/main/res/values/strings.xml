@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">GitTreadingRepo</string>
+    <string name="something_went_wrong">Something went wrong..</string>
+    <string name="no_internet_error_message">Unable to load your result, is your internet working.</string>
+    <string name="no_result_error_message">Opps, nothing is found for you, Please close the app and restart</string>
+    <string name="retry">RETRY</string>
+    <string name="load_from_db">Load From DB</string>
+    <string name="trending">Trending</string>
+</resources>

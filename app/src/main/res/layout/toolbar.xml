@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/my_toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="?attr/colorPrimary"
+    android:elevation="4dp">
+
+    <Button
+        android:id="@+id/btnShowFromDB"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_gravity="end"
+        android:background="@drawable/ic_rounded_corner_white_with_green_stroke"
+        android:padding="@dimen/_8sdp"
+        android:visibility="gone"
+        android:text="@string/load_from_db"
+        android:textColor="@color/green"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/toolbarTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/trending"
+        android:textColor="@color/default_text_color"
+        android:textSize="@dimen/_18sdp" />
+</androidx.appcompat.widget.Toolbar>

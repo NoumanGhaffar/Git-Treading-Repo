@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_12sdp">
+
+        <TextView
+            android:id="@+id/txtOwnerName"
+            style="@style/MyTextView.Normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:text='@{repo.repoOwner != null ? repo.repoOwner.name : ""}'
+            android:visibility="@{repo.repoOwner ==null ? View.GONE : View.VISIBLE}"
+            app:layout_constraintStart_toEndOf="@+id/ivOwnerImage"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Nouman Ghaffar" />
+
+        <TextView
+            android:id="@+id/txtRepoName"
+            style="@style/MyTextView.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:text='@{repo.fullName}'
+            app:layout_constraintStart_toEndOf="@+id/ivOwnerImage"
+            app:layout_constraintTop_toBottomOf="@+id/txtOwnerName"
+            tools:text="Circular Image View" />
+
+        <TextView
+            android:id="@+id/txtRepoUrl"
+            style="@style/MyTextView.Normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:maxLines="2"
+            android:text='@{repo.url != null ? repo.url : ""}'
+            android:visibility="@{repo.url==null ? View.GONE : View.VISIBLE}"
+            app:layout_constraintStart_toEndOf="@+id/ivOwnerImage"
+            app:layout_constraintTop_toBottomOf="@+id/txtRepoName"
+            tools:text="www.circularimageview.com" />
+
+        <TextView
+            android:id="@+id/txtRepoId"
+            style="@style/MyTextView.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:maxLines="2"
+            android:text='@{repo.repoId+""}'
+            android:visibility="@{repo.repoId==0 ? View.GONE : View.VISIBLE}"
+            app:layout_constraintStart_toEndOf="@+id/ivOwnerImage"
+            app:layout_constraintTop_toBottomOf="@+id/txtRepoUrl"
+            tools:text="1234566" />
+
+        <TextView
+            android:id="@+id/txtRepoNodeId"
+            style="@style/MyTextView.Normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:maxLines="2"
+            android:text='@{repo.nodeId != null ? repo.nodeId : ""}'
+            android:visibility="@{repo.nodeId==null ? View.GONE : View.VISIBLE}"
+            app:layout_constraintStart_toEndOf="@+id/ivOwnerImage"
+            app:layout_constraintTop_toBottomOf="@+id/txtRepoId"
+            tools:text="2d3d4d5d6d7d" />
+
+        <TextView
+            android:id="@+id/txtLanguage"
+            style="@style/MyTextView.Normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:drawablePadding="@dimen/_4sdp"
+            android:text='@{repo.language != null ? repo.language : ""}'
+            android:visibility="@{repo.language ==null ? View.GONE : View.VISIBLE}"
+            app:drawableStartCompat="@drawable/ic_rounded_circle_green"
+            app:layout_constraintStart_toEndOf="@+id/ivOwnerImage"
+            app:layout_constraintTop_toBottomOf="@+id/txtRepoNodeId"
+            tools:text="Kotlin" />
+
+        <TextView
+            android:id="@+id/txtStartCount"
+            style="@style/MyTextView.Normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_24sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:drawablePadding="@dimen/_4sdp"
+            android:text='@{repo.starsCount +""}'
+            android:visibility="@{repo.starsCount > 0 ? View.VISIBLE : View.GONE}"
+            app:drawableStartCompat="@drawable/ic_star"
+            app:layout_constraintStart_toEndOf="@+id/txtLanguage"
+            app:layout_constraintTop_toBottomOf="@+id/txtRepoNodeId"
+            tools:text="1000" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="@color/light_gray"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtLanguage" />
+
+        <com.nouman.gittreadingrepo.utils.RoundedCornerImageView
+            android:id="@+id/ivOwnerImage"
+            app:profileImage="@{repo.repoOwner.url}"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@mipmap/ic_launcher" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="repo"
+            type="com.nouman.gittreadingrepo.models.Repo" />
+    </data>
+</layout>
