@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/_12sdp">
 
-        <com.nouman.gittreadingrepo.utils.RoundedCornerImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivOwner"
             android:layout_width="@dimen/_35sdp"
             android:layout_height="@dimen/_35sdp"

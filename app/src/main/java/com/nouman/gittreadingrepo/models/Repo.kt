@@ -2,9 +2,9 @@ package com.nouman.gittreadingrepo.models
 
 
 import android.os.Parcelable
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
-import com.nouman.gittreadingrepo.utils.RoundedCornerImageView
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
@@ -22,7 +22,7 @@ data class Repo(
     companion object {
         @JvmStatic
         @BindingAdapter("profileImage")
-        fun loadImage(view: RoundedCornerImageView, profileImage: String) {
+        fun loadImage(view: AppCompatImageView, profileImage: String) {
             Glide.with(view.context)
                 .load(profileImage)
                 .into(view)
